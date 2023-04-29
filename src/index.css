@@ -24,12 +24,12 @@
 }
 
 @layer components {
-  .typography-slab {
+  .typography {
     @apply text-[14px] leading-6;
   }
 
-  .typography-slab-bold {
-    @apply typography-slab font-bold;
+  .typography-bold {
+    @apply typography font-bold;
   }
 }
 

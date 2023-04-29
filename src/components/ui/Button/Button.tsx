@@ -2,20 +2,31 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { ReactComponent as SaveIcon } from '../../../assets/icons/icon-save.svg';
 import { ReactComponent as PlusIcon } from '../../../assets/icons/icon-plus.svg';
+import { ReactComponent as CloseIcon } from '../../../assets/icons/icon-close.svg';
 
-type BtnTitle = 'newDocument' | 'saveChanges';
+type BtnTitle = 'newDocument' | 'saveChanges' | 'close';
 type BtnType = {
-  text: string;
+  text?: string;
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 };
 
 const ButtonType: Record<BtnTitle, BtnType> = {
   newDocument: { text: 'New Document', Icon: PlusIcon },
   saveChanges: { text: 'Save Changes', Icon: SaveIcon },
+  close: { Icon: CloseIcon },
 };
 
 const button = cva(
-  ['flex', 'justify-center', 'items-center', 'gap-2', 'rounded-[4px]', 'capitalize'],
+  [
+    'flex',
+    'justify-center',
+    'items-center',
+    'gap-2',
+    'rounded-[4px]',
+    'capitalize',
+    'min-w-[202px]',
+    'text-[15px]',
+  ],
   {
     variants: {
       intent: {
@@ -53,7 +64,7 @@ export const Button: React.FC<ButtonProps> = ({
   const { Icon, text } = ButtonType[buttonTitle];
   return (
     <button className={button({ intent, size, fullWidth, className })} {...props}>
-      <Icon width={16} height={16} /> {text}
+      <Icon width={16} height={16} /> {text && text}
     </button>
   );
 };
