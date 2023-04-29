@@ -23,6 +23,7 @@ specifiers:
   prettier: ^2.8.7
   react: ^18.2.0
   react-dom: ^18.2.0
+  tailwind-merge: ^1.12.0
   tailwindcss: ^3.3.2
   typescript: ^5.0.2
   vite: ^4.3.0
@@ -39,6 +40,7 @@ dependencies:
   prettier: 2.8.8
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  tailwind-merge: 1.12.0
 
 devDependencies:
   '@types/react': 18.2.0
@@ -2673,6 +2675,10 @@ packages:
   /svg-parser/2.0.4:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
     dev: true
+
+  /tailwind-merge/1.12.0:
+    resolution: {integrity: sha512-Y17eDp7FtN1+JJ4OY0Bqv9OA41O+MS8c1Iyr3T6JFLnOgLg3EvcyMKZAnQ8AGyvB5Nxm3t9Xb5Mhe139m8QT/g==}
+    dev: false
 
   /tailwindcss/3.3.2:
     resolution: {integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==}

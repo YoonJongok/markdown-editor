@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
-import { ReactComponent as SaveIcon } from '../../assets/icons/icon-save.svg';
-import { ReactComponent as PlusIcon } from '../../assets/icons/icon-plus.svg';
+import { ReactComponent as SaveIcon } from '../../../assets/icons/icon-save.svg';
+import { ReactComponent as PlusIcon } from '../../../assets/icons/icon-plus.svg';
 
 type BtnTitle = 'newDocument' | 'saveChanges';
 type BtnType = {
@@ -19,15 +19,18 @@ const button = cva(
   {
     variants: {
       intent: {
-        primary: ['bg-coral-2', 'text-white', 'border-transparent', 'hover:bg-coral-1'],
+        default: ['bg-coral-2', 'text-white', 'border-transparent', 'hover:bg-coral-1'],
       },
       size: {
         small: ['text-sm', 'py-1', 'px-2'],
         medium: ['text-base', 'py-3', 'px-4'],
       },
+      fullWidth: {
+        true: ['w-full'],
+      },
     },
     defaultVariants: {
-      intent: 'primary',
+      intent: 'default',
       size: 'medium',
     },
   }
@@ -43,12 +46,13 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   intent,
   size,
+  fullWidth,
   buttonTitle,
   ...props
 }) => {
   const { Icon, text } = ButtonType[buttonTitle];
   return (
-    <button className={button({ intent, size, className })} {...props}>
+    <button className={button({ intent, size, fullWidth, className })} {...props}>
       <Icon width={16} height={16} /> {text}
     </button>
   );

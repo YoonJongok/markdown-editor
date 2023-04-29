@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+}
+
+@layer components {
+  .typography-slab {
+    @apply text-[14px] leading-6;
+  }
+
+  .typography-slab-bold {
+    @apply typography-slab font-bold;
+  }
+}
+
