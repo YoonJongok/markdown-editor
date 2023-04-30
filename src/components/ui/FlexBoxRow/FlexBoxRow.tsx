@@ -6,6 +6,7 @@ const flexBoxRow = cva(['flex', 'flex-row'], {
     intent: {
       flexStartStart: ['justify-start', 'items-start'],
       flexStartCenter: ['justify-start', 'items-center'],
+      flexEndCenter: ['justify-end', 'items-center'],
       flexCenterCenter: ['justify-center', 'items-center'],
       flexBetweenCenter: ['justify-between', 'items-center'],
       flexAroundCenter: ['justify-around', 'items-center'],

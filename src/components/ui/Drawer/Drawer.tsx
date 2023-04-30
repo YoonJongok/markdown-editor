@@ -3,12 +3,10 @@ import { FlexBoxColumn } from '../FlexBoxColumn/FlexBoxColumn';
 import { ReactComponent as Logo } from '../../../assets/icons/logo.svg';
 import { ReactComponent as MoonIcon } from '../../../assets/icons/icon-dark-mode.svg';
 import { ReactComponent as SunIcon } from '../../../assets/icons/icon-light-mode.svg';
-import { ReactComponent as CloseIcon } from '../../../assets/icons/icon-close.svg';
 import { FlexBoxRow } from '../FlexBoxRow/FlexBoxRow';
 import { DarkModeSwitch } from '../../DarkModeSwitch/DarkModeSwitch';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
-import { cn } from '../../../lib/utils';
 
 type DrawerProps = {
   title: string;
@@ -31,8 +29,7 @@ export default function Drawer({ title, children, isOpen, setIsOpen }: DrawerPro
         <Button
           buttonTitle='close'
           intent={'close'}
-          size={'large'}
-          className='absolute right-0 top-0 z-50 '
+          className='absolute right-0 top-0 z-50'
           onClick={() => setIsOpen(false)}
         />
       </FlexBoxRow>
