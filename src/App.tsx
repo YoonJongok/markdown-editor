@@ -6,15 +6,20 @@ import { FlexBoxColumn } from './components/ui/FlexBoxColumn/FlexBoxColumn';
 import { FlexBoxRow } from './components/ui/FlexBoxRow/FlexBoxRow';
 import { useState } from 'react';
 import Modal from './components/ui/Modal/Modal';
+import dataConfig from './data.json';
+
+export type MarkdownData = {
+  createdAt: string;
+  name: string;
+  content: string;
+};
 
 function App() {
   const [isPreview, setIsPreview] = useState<boolean>(false);
   const [sideBarOpen, setSideBarOpen] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
-  const handleDeleteBtnClick = () => {
-    setModalOpen(true);
-  };
+  const [documentList, setDocumentList] = useState<MarkdownData[]>(dataConfig);
 
   const handleCloseModal = () => {
     setModalOpen(false);
@@ -22,7 +27,7 @@ function App() {
 
   return (
     <Layout>
-      <Sidebar {...{ isOpen: sideBarOpen, setIsOpen: setSideBarOpen }} />
+      <Sidebar {...{ isOpen: sideBarOpen, setIsOpen: setSideBarOpen, documentList }} />
       <Header setSideBarOpen={setSideBarOpen} setModalOpen={setModalOpen} />
       <FlexBoxColumn onClick={() => setIsPreview((prev) => !prev)} className='cursor-pointer'>
         <FlexBoxRow intent={'flexBetweenCenter'} className='bg-grey-1 py-3 px-4'>
