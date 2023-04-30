@@ -6,9 +6,7 @@ export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <Drawer isOpen={true} setIsOpen={setIsOpen} title='My documents'>
-      <Button buttonTitle='newDocument' fullWidth onClick={() => setIsOpen(!isOpen)}>
-        Close
-      </Button>
+      <Button buttonTitle='newDocument' fullWidth onClick={() => setIsOpen(!isOpen)} />
     </Drawer>
   );
 };

@@ -17,24 +17,23 @@ const ButtonType: Record<BtnTitle, BtnType> = {
 };
 
 const button = cva(
-  [
-    'flex',
-    'justify-center',
-    'items-center',
-    'gap-2',
-    'rounded-[4px]',
-    'capitalize',
-    'min-w-[202px]',
-    'text-[15px]',
-  ],
+  ['flex', 'justify-center', 'items-center', 'gap-2', 'rounded-[4px]', 'capitalize', 'text-[15px]'],
   {
     variants: {
       intent: {
-        default: ['bg-coral-2', 'text-white', 'border-transparent', 'hover:bg-coral-1'],
+        default: [
+          'bg-coral-2',
+          'text-white',
+          'border-transparent',
+          'hover:bg-coral-1',
+          'min-w-[202px]',
+        ],
+        close: ['bg-black-1'],
       },
       size: {
         small: ['text-sm', 'py-1', 'px-2'],
         medium: ['text-base', 'py-3', 'px-4'],
+        large: ['text-lg', 'p-5'],
       },
       fullWidth: {
         true: ['w-full'],
@@ -44,6 +43,13 @@ const button = cva(
       intent: 'default',
       size: 'medium',
     },
+    compoundVariants: [
+      {
+        intent: 'close',
+        size: 'large',
+        className: 'w-14 h-14',
+      },
+    ],
   }
 );
 
