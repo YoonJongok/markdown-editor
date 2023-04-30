@@ -3,7 +3,7 @@ import { FlexBoxRow } from '../ui/FlexBoxRow/FlexBoxRow';
 import { Button } from '../ui/Button/Button';
 import { ReactComponent as DocumentIcon } from '../../assets/icons/icon-document.svg';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className='flex justify-between items-center pr-2 bg-black-2'>
       <FlexBoxRow intent={'flexStartCenter'} className='gap-4'>

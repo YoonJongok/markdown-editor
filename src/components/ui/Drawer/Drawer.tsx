@@ -15,7 +15,7 @@ type DrawerProps = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
-export default function Drawer({ title, children, isOpen, setIsOpen }: DrawerProps) {
+export const Drawer = ({ title, children, isOpen, setIsOpen }: DrawerProps) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <Dialog
@@ -58,5 +58,5 @@ export default function Drawer({ title, children, isOpen, setIsOpen }: DrawerPro
       </FlexBoxColumn>
     </Dialog>
   );
-}
+};
 
