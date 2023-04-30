@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import React from 'react';
 import Drawer from '../ui/Drawer';
 import { Button } from '../ui/Button/Button';
 import { FlexBoxRow } from '../ui/FlexBoxRow/FlexBoxRow';
 import { ReactComponent as DocumentIcon } from '../../assets/icons/icon-document.svg';
 import { FlexBoxColumn } from '../ui/FlexBoxColumn/FlexBoxColumn';
 
-export const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+interface SidebarProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   return (
     <Drawer isOpen={isOpen} setIsOpen={setIsOpen} title='My documents'>
-      <Button buttonTitle='newDocument' fullWidth onClick={() => setIsOpen(!isOpen)} />
+      <Button buttonTitle='newDocument' fullWidth onClick={() => setIsOpen((prev) => !prev)} />
       <FlexBoxRow intent={'flexStartCenter'} className='gap-4'>
         <DocumentIcon />
         <FlexBoxColumn className='items-start'>

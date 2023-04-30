@@ -5,8 +5,18 @@ import { ReactComponent as PlusIcon } from '../../../assets/icons/icon-plus.svg'
 import { ReactComponent as CloseIcon } from '../../../assets/icons/icon-close.svg';
 import { ReactComponent as MenuIcon } from '../../../assets/icons/icon-menu.svg';
 import { ReactComponent as DeleteIcon } from '../../../assets/icons/icon-delete.svg';
+import { ReactComponent as PreviewIcon } from '../../../assets/icons/icon-show-preview.svg';
+import { ReactComponent as HidePreviewIcon } from '../../../assets/icons/icon-hide-preview.svg';
 
-type BtnTitle = 'newDocument' | 'saveChanges' | 'close' | 'delete' | 'menu' | 'save';
+type BtnTitle =
+  | 'newDocument'
+  | 'saveChanges'
+  | 'close'
+  | 'delete'
+  | 'menu'
+  | 'save'
+  | 'showPreview'
+  | 'hidePreview';
 type BtnType = {
   text?: string;
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
@@ -14,11 +24,13 @@ type BtnType = {
 
 const ButtonType: Record<BtnTitle, BtnType> = {
   newDocument: { text: 'New Document', Icon: PlusIcon },
-  saveChanges: { text: 'Save Changes', Icon: SaveIcon },
+  saveChanges: { text: 'Save Changes', Icon: HidePreviewIcon },
   save: { Icon: SaveIcon },
   close: { Icon: CloseIcon },
   menu: { Icon: MenuIcon },
   delete: { Icon: DeleteIcon },
+  showPreview: { Icon: PreviewIcon },
+  hidePreview: { Icon: HidePreviewIcon },
 };
 
 const button = cva(
@@ -39,8 +51,12 @@ const button = cva(
         delete: ['bg-transparent', 'hover:bg-black-1'],
         menu: ['bg-black-1'],
         save: ['bg-coral-2', 'hover:bg-coral-1'],
+        showPreview: ['pt-1'],
+        hidePreview: ['pt-1'],
       },
-      size: {},
+      size: {
+        medium: ['p-5'],
+      },
       fullWidth: {
         true: ['w-full'],
       },
@@ -57,6 +73,8 @@ const button = cva(
         intent: ['delete', 'save'],
         className: 'p-3',
       },
+      { intent: 'menu', className: 'p-5' },
+      { intent: ['showPreview', 'hidePreview'], className: 'tracking-widest' },
     ],
   }
 );
