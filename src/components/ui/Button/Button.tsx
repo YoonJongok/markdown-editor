@@ -20,10 +20,14 @@ type BtnTitle =
 type BtnType = {
   text?: string;
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  iconSize?: {
+    width?: number;
+    height?: number;
+  };
 };
 
 const ButtonType: Record<BtnTitle, BtnType> = {
-  newDocument: { text: 'New Document', Icon: PlusIcon },
+  newDocument: { text: 'New Document', Icon: PlusIcon, iconSize: { width: 20, height: 20 } },
   saveChanges: { text: 'Save Changes', Icon: HidePreviewIcon },
   save: { Icon: SaveIcon },
   close: { Icon: CloseIcon },
@@ -34,7 +38,16 @@ const ButtonType: Record<BtnTitle, BtnType> = {
 };
 
 const button = cva(
-  ['flex', 'justify-center', 'items-center', 'gap-2', 'rounded-[4px]', 'capitalize', 'text-[15px]'],
+  [
+    'flex',
+    'justify-center',
+    'items-center',
+    'gap-2',
+    'rounded-[4px]',
+    'capitalize',
+    'text-[15px]',
+    'border-transparent',
+  ],
   {
     variants: {
       intent: {
@@ -43,16 +56,15 @@ const button = cva(
           'text-white',
           'border-transparent',
           'hover:bg-coral-1',
-          'min-w-[202px]',
           'px-4',
           'py-3',
         ],
         close: ['bg-black-1'],
         delete: ['bg-transparent', 'hover:bg-black-1'],
         menu: ['bg-black-1'],
-        save: ['bg-coral-2', 'hover:bg-coral-1'],
-        showPreview: ['pt-1'],
-        hidePreview: ['pt-1'],
+        save: ['bg-coral-2', 'hover:bg-coral-1', 'w-10'],
+        showPreview: [],
+        hidePreview: [],
       },
       size: {
         medium: ['p-5'],
@@ -73,8 +85,9 @@ const button = cva(
         intent: ['delete', 'save'],
         className: 'p-3',
       },
-      { intent: 'menu', className: 'p-5' },
-      { intent: ['showPreview', 'hidePreview'], className: 'tracking-widest' },
+      { intent: 'menu', className: 'px-5 py-6' },
+      { intent: ['showPreview', 'hidePreview'], className: 'pt-1 tracking-widest' },
+      { intent: 'save', className: '' },
     ],
   }
 );
@@ -82,7 +95,8 @@ const button = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof button> {
-  buttonTitle: BtnTitle;
+  buttonTitle?: BtnTitle;
+  btnValue?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -91,13 +105,24 @@ export const Button: React.FC<ButtonProps> = ({
   size,
   fullWidth,
   buttonTitle,
+  btnValue,
   ...props
 }) => {
-  const { Icon, text } = ButtonType[buttonTitle];
+  const btnConfig = buttonTitle && ButtonType[buttonTitle];
+
   return (
-    <button className={button({ intent, size, fullWidth, className })} {...props}>
-      <Icon width={16} height={16} /> {text && text}
-    </button>
+    <>
+      {btnConfig && (
+        <button className={button({ intent, size, fullWidth, className })} {...props}>
+          <btnConfig.Icon width={btnConfig?.iconSize?.width} /> {btnConfig?.text}
+        </button>
+      )}
+      {btnValue && (
+        <button className={button({ intent, size, fullWidth, className })} {...props}>
+          {btnValue}
+        </button>
+      )}
+    </>
   );
 };
 

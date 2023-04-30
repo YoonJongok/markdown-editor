@@ -22,22 +22,22 @@ export const Drawer = ({ title, children, isOpen, setIsOpen }: DrawerProps) => {
       unmount={false}
       open={isOpen}
       onClose={() => setIsOpen(false)}
-      className='fixed w-full max-w-[250px] flex flex-col gap-[27px] px-6 py-[28px] z-30 inset-0 overflow-y-auto bg-black-3'
+      className='fixed w-full max-w-[250px] flex flex-col gap-[27px] px-6 py-[28px] z-10 inset-0 overflow-y-auto bg-black-3'
     >
       <FlexBoxRow intent={'flexBetweenCenter'} className=''>
         <Logo />
         <Button
           buttonTitle='close'
           intent={'close'}
-          className='absolute right-0 top-0 z-50'
+          className='absolute right-0 top-0 z-40'
           onClick={() => setIsOpen(false)}
         />
       </FlexBoxRow>
 
-      <Dialog.Overlay className='z-40 fixed inset-0 bg-black bg-opacity-30' />
+      <Dialog.Overlay className='z-30 fixed inset-0 bg-black bg-opacity-30' />
       <FlexBoxColumn
         fullWidth
-        className={`z-50 justify-between
+        className={`z-30 justify-between
                          max-w-sm h-screen  overflow-hidden text-left align-middle
                          shadow-xl`}
       >
