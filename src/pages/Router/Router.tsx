@@ -6,27 +6,12 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { Home } from '../Home/Home';
-import Layout from '../../components/Layout';
+import DocumentDetail from '../DocumentDetail';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route
-        path='/'
-        element={
-          <Layout>
-            <Home />
-          </Layout>
-        }
-      />
-      <Route
-        path='/:id'
-        element={
-          <Layout>
-            <div>About ID</div>
-          </Layout>
-        }
-      />
+      <Route path='/' element={<Home />}></Route>
       <Route path='*' element={<Navigate to='/' replace />} />
     </>
   )

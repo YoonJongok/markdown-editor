@@ -7,7 +7,7 @@ export type MarkdownData = {
   content: string;
 };
 
-const documentsAtom = atom<MarkdownData[]>([]);
+export const documentsAtom = atom<MarkdownData[]>([]);
 
 export const fetchMarkdownDocumentsAtom = atom(
   (get) => get(documentsAtom),
