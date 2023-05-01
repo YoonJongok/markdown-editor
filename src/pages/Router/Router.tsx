@@ -6,7 +6,6 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { Home } from '../Home/Home';
-import DocumentDetail from '../DocumentDetail';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
