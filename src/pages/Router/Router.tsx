@@ -11,18 +11,28 @@ import Layout from '../../components/Layout';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Home />} />
-      <Route path=':id' element={<div>About ID</div>} />
+      <Route
+        path='/'
+        element={
+          <Layout>
+            <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path='/:id'
+        element={
+          <Layout>
+            <div>About ID</div>
+          </Layout>
+        }
+      />
       <Route path='*' element={<Navigate to='/' replace />} />
     </>
   )
 );
 
 export const Router = () => {
-  return (
-    <Layout>
-      <RouterProvider router={router} />
-    </Layout>
-  );
+  return <RouterProvider router={router} />;
 };
 
