@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sideBarOpen, setSideBarOpen] = useState<boolean>(false);
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [_, setModalOpen] = useState<boolean>(false);
 
   return (
     <FlexBoxColumn className={cn('w-full  h-full min-h-screen dark:bg-black-900')}>

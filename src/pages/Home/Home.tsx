@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import Layout from '../../components/Layout';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
-import { Header } from '../../components/Header/Header';
 import { FlexBoxColumn } from '../../components/ui/FlexBoxColumn/FlexBoxColumn';
 import { FlexBoxRow } from '../../components/ui/FlexBoxRow/FlexBoxRow';
-import dataConfig from '../../config/data.json';
 import { Button } from '../../components/ui/Button/Button';
 import Modal from '../../components/ui/Modal/Modal';
-import { MarkdownData } from '../../store/jotai';
 
 export const Home = () => {
   const [isPreview, setIsPreview] = useState<boolean>(false);
-  const [sideBarOpen, setSideBarOpen] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-
-  const [documentList, setDocumentList] = useState<MarkdownData[]>(dataConfig);
 
   const handleCloseModal = () => {
     setModalOpen(false);
