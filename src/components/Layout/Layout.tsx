@@ -14,8 +14,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <FlexBoxColumn className={cn('w-full  h-full min-h-screen dark:bg-black-900')}>
-      {/* <Sidebar {...{ isOpen: sideBarOpen, setIsOpen: setSideBarOpen }} />
-      <Header setSideBarOpen={setSideBarOpen} setModalOpen={setModalOpen} /> */}
+      <Sidebar {...{ isOpen: sideBarOpen, setIsOpen: setSideBarOpen }} />
+      <Header setSideBarOpen={setSideBarOpen} setModalOpen={setModalOpen} />
       {children}
     </FlexBoxColumn>
   );

@@ -19,6 +19,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-react-refresh: ^0.3.4
   husky: ^8.0.0
+  jotai: ^2.0.4
   postcss: ^8.4.23
   prettier: ^2.8.7
   react: ^18.2.0
@@ -39,6 +40,7 @@ dependencies:
   clsx: 1.2.1
   eslint-config-prettier: 8.8.0_eslint@8.39.0
   eslint-plugin-prettier: 4.2.1_5pokp25ua6t5ubushhw3tqituq
+  jotai: 2.0.4_react@18.2.0
   prettier: 2.8.8
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -2117,6 +2119,18 @@ packages:
     resolution: {integrity: sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==}
     hasBin: true
     dev: true
+
+  /jotai/2.0.4_react@18.2.0:
+    resolution: {integrity: sha512-XkR1Jtm4a2iKV/7fdB3rNHjJz8FkkDMVczqiAok7lt8W4F69l/ZQkPGWSEV+hJOJXRn27k6XYKOoKEQIwBuAMA==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /js-sdsl/4.4.0:
     resolution: {integrity: sha512-FfVSdx6pJ41Oa+CF7RDaFmTnCaFhua+SNYQX74riGOpl96x+2jQCqEfQ2bnXu/5DPCqlRuiqyvTJM0Qjz26IVg==}

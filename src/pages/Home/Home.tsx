@@ -7,12 +7,7 @@ import { FlexBoxRow } from '../../components/ui/FlexBoxRow/FlexBoxRow';
 import dataConfig from '../../config/data.json';
 import { Button } from '../../components/ui/Button/Button';
 import Modal from '../../components/ui/Modal/Modal';
-
-export type MarkdownData = {
-  createdAt: string;
-  name: string;
-  content: string;
-};
+import { MarkdownData } from '../../store/jotai';
 
 export const Home = () => {
   const [isPreview, setIsPreview] = useState<boolean>(false);
@@ -27,8 +22,6 @@ export const Home = () => {
 
   return (
     <>
-      <Sidebar {...{ isOpen: sideBarOpen, setIsOpen: setSideBarOpen, documentList }} />
-      <Header setSideBarOpen={setSideBarOpen} setModalOpen={setModalOpen} />
       <FlexBoxColumn onClick={() => setIsPreview((prev) => !prev)} className='cursor-pointer'>
         <FlexBoxRow intent={'flexBetweenCenter'} className='bg-grey-1 py-3 px-4'>
           <h6 className='uppercase text-grey-4'>{isPreview ? 'preview' : 'markdown'}</h6>
